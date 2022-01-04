@@ -1,6 +1,7 @@
 import 'dart:io';
-import 'dart:io';
 
+import 'package:catalog/flutter_catalog.dart';
+import 'package:catalog/menu_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class DialogPage extends StatefulWidget {
@@ -16,15 +17,16 @@ class _DialogPageState extends State<DialogPage> {
   void display(){
     if(Platform.isIOS){
       _iosDialog();
-    }else
+    }else {
       _androidDialog();
+    }
   }
 
 
   void _iosDialog(){
     showDialog(context: context,
         builder: (BuildContext context){
-      return CupertinoAlertDialog(
+      return const CupertinoAlertDialog(
         title: Text("Log out"),
         content: Text("Are you sure you want to log out "),
         actions: [
@@ -40,13 +42,13 @@ class _DialogPageState extends State<DialogPage> {
     showDialog(context: context,
       builder: (BuildContext context) {
         return  AlertDialog(
-          title: Text("Log out"),
-          content: Text("Are you sure you want to log out "),
+          title: const Text("Log out"),
+          content: const Text("Are you sure you want to log out "),
           actions: [
             TextButton(onPressed: (){
               Navigator.pop(context);
-            }, child: Text("Cencel"),),
-            TextButton(onPressed: (){}, child: Text("Confirm"),),
+            }, child: const Text("Cencel"),),
+            TextButton(onPressed: (){}, child: const Text("Confirm"),),
           ],
         );
       },
@@ -89,7 +91,7 @@ class _DialogPageState extends State<DialogPage> {
               textColor: Colors.white,
               color: Colors.amber,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             MaterialButton(
@@ -103,6 +105,36 @@ class _DialogPageState extends State<DialogPage> {
               textColor: Colors.white,
               color: Colors.amber,
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            MaterialButton(
+              shape: StadiumBorder(),
+              height: 50,
+              minWidth: 250,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (BuildContext contex) => const FlutterCatalog(),));
+              },
+              child: Text("Flutter Catalog"),
+              textColor: Colors.white,
+              color: Colors.amber,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            MaterialButton(
+              shape: const StadiumBorder(),
+              height: 50,
+              minWidth: 250,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (BuildContext contex) => const MenuPage(),));
+              },
+              child: const Text("Menu"),
+              textColor: Colors.white,
+              color: Colors.amber,
+            ),
           ],
         ),
       ),
@@ -110,13 +142,13 @@ class _DialogPageState extends State<DialogPage> {
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.amber
               ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
+                  children: const [
                     Text("Header", style: TextStyle(color: Colors.black, fontSize: 20),),
                     SizedBox(
                       height: 10,
@@ -125,19 +157,19 @@ class _DialogPageState extends State<DialogPage> {
                   ],
                 )),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Profile"),
+              leading: const Icon(Icons.person),
+              title: const Text("Profile"),
               onTap: (){},
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             ListTile(
-              leading: Icon(Icons.contact_page),
+              leading: const Icon(Icons.contact_page),
               title: Text("Contacts"),
               onTap: (){},
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             ListTile(
@@ -145,7 +177,7 @@ class _DialogPageState extends State<DialogPage> {
               title: Text("Profile"),
               onTap: (){},
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             ListTile(
@@ -156,6 +188,7 @@ class _DialogPageState extends State<DialogPage> {
           ],
         ),
       ),
+
     );
   }
 }

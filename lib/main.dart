@@ -1,5 +1,7 @@
 import 'package:catalog/dialog_page.dart';
+import 'package:catalog/flutter_catalog.dart';
 import 'package:catalog/home_page.dart';
+import 'package:catalog/menu_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.id: (context) => HomePage(),
         DialogPage.id: (context) => DialogPage(),
+        FlutterCatalog.id: (context) => FlutterCatalog(),
+        MenuPage.id: (context) => MenuPage(),
       },
     );
   }
